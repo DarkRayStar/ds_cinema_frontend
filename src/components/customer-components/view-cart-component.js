@@ -56,9 +56,9 @@ export default class ViewCart extends Component {
         })
     }
 
-    onCheckout() {
+    async onCheckout() {
 
-        axios.get('http://localhost:5050/cart/')
+       await axios.get('http://localhost:5050/cart/')
             .then(response => {
                 this.setState({ checkoutMap: response.data })
                 console.log(this.state.checkoutMap.length);
@@ -78,13 +78,15 @@ export default class ViewCart extends Component {
                 console.log(error);
             })
 
-        fetch("http://localhost:5050/create-checkout-session", {
+        await fetch("http://localhost:5050/create-checkout-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: this.state.items
-
+            body: JSON.stringify({
+                items: this.state.items
+              }
+              )
         })
             .then(res => {
                 if (res.ok) return res.json()
