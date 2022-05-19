@@ -181,7 +181,7 @@ export default class ViewOneMovie extends Component {
                                         <button style={{ marginTop: "20px" }} onClick={this.onSubmit} > Add to Cart </button>
                                     </div>
                                     <div className="btnCancel">
-                                        <Link to={"/movie/view"}> <button className="btn btn-primary" style={{ marginLeft: "15px", marginTop: "7px" }}>Cancel</button></Link>
+                                        <Link to={"/home"}> <button className="btn btn-primary" style={{ marginLeft: "15px", marginTop: "7px" }}>Cancel</button></Link>
                                     </div>
                                 </div>
                             </div>

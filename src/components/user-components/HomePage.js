@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
     MDBCard,
     MDBCardBody,
@@ -70,7 +71,7 @@ const HomePage = () => {
                                     </MDBCardBody>
                                     <MDBCardFooter>
                                         <small className='text-muted'> {movie.genre}</small>
-                                        <MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float:"right" }}> More </MDBBtn>
+                                        <Link to={"/one-movie/view/" + movie._id}><MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float: "right" }}> More </MDBBtn></Link>
                                     </MDBCardFooter>
                                 </MDBCard>
                             </MDBCol>
