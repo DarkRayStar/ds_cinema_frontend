@@ -8,6 +8,12 @@ import ViewOneMovie from './components/customer-components/view-movie-component'
 import ViewCart from './components/customer-components/view-cart-component';
 import TheaterOption from './components/customer-components/theater-option-component';
 
+//user management
+import CustomerRegistration from './components/userManagement-component/customerRegistration.component';
+import CustomerLogin from './components/userManagement-component/customerLogin.component';
+import AdminLogin from './components/userManagement-component/adminLogin.component';
+import loginRegistrationUI from './components/userManagement-component/loginRegistrationUI.component';
+
 import adminRetrieve from './components/admin-components/admin-retrieve';
 import adminInsert from './components/admin-components/admin-insert';
 import adminUpdate from './components/admin-components/admin-update';
@@ -18,12 +24,14 @@ import successPage from './components/payment_components/successPage';
 
 <link rel="stylesheet" href='./' />
 
+
 function App() {
 
   var bgColors = { "Blue": "#00B1E1", "Lgrey": "LightGray" }
   return (
 
     <Router>
+
       <div>
         <Navbar />
 
@@ -39,7 +47,16 @@ function App() {
           <Route path="/theater-option/" component={TheaterOption} />
 
           <Route path="/payment-success" component={successPage} />
+  
+          {/* user management */}
+          <Route path="/welcome-customer" exact component={loginRegistrationUI} />
+          <Route path="/customer-signUp" exact component={CustomerRegistration} />
+          <Route path="/customer-signIn" exact component={CustomerLogin} />
+          <Route path="/admin-signIn" exact component={AdminLogin} />
+
+
         </div>
+
       </div>
     </Router>
   );
