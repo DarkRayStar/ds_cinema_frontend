@@ -70,7 +70,7 @@ export default class ViewCart extends Component {
                 var i = 0;
                 for (i = 0; i < this.state.checkoutMap.length; i++) {
                     // console.log(this.state.checkoutMap[i].movieName);
-                    this.state.items.push({ id: this.state.checkoutMap[i].movieName + ' - ' + this.state.checkoutMap[i].theaterOpt, quantity: 2 })
+                    this.state.items.push({ id: this.state.checkoutMap[i].movieName + ' - ' + this.state.checkoutMap[i].theaterOpt, quantity: this.state.checkoutMap[i].quantity })
                 }
                 console.log(this.state.items);
             })
