@@ -13,6 +13,9 @@ import adminInsert from './components/admin-components/admin-insert';
 import adminUpdate from './components/admin-components/admin-update';
 import HomePage from './components/user-components/HomePage';
 import Navbar from './components/navbar.component';
+
+import successPage from './components/payment_components/successPage';
+
 <link rel="stylesheet" href='./' />
 
 function App() {
@@ -34,6 +37,8 @@ function App() {
           <Route path="/one-movie/view/:id" component={ViewOneMovie} />
           <Route path="/cart/view/" component={ViewCart} />
           <Route path="/theater-option/" component={TheaterOption} />
+
+          <Route path="/payment-success" component={successPage} />
         </div>
       </div>
     </Router>
