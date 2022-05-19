@@ -106,9 +106,9 @@ export default class ViewCart extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ paddingBottom: "350px" }}>
                 <div className="headingModsForViewVcl"> Movie Cart  </div>
-                <table className="table table-hover table-bordered">
+                <table className="table table-hover table-bordered table-light">
                     <thead className="table-dark">
                         <tr>
                             <th>Movie name</th>
