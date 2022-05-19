@@ -16,6 +16,7 @@ export default class ViewOneMovie extends Component {
         this.onChangeGenre = this.onChangeGenre.bind(this);
         this.onChangeImdb = this.onChangeImdb.bind(this);
         this.onChangeTeaterOption = this.onChangeTeaterOption.bind(this);
+        this.onChangeQuanity = this.onChangeQuanity.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -26,7 +27,8 @@ export default class ViewOneMovie extends Component {
             imageurl: '',
             genre: '',
             imdb: '',
-            theaterOpt: ''
+            theaterOpt: '',
+            quantity: ''
         }
     }
 
@@ -42,6 +44,7 @@ export default class ViewOneMovie extends Component {
                     genre: response.data.genre,
                     imdb: response.data.imdb,
                     theaterOpt: response.data.theaterOpt,
+                    quantity: response.data.quantity
                 })
                 console.log(response);
             })
@@ -98,6 +101,12 @@ export default class ViewOneMovie extends Component {
         })
     }
 
+    onChangeQuanity(e) {
+        this.setState({
+            quantity: e.target.value
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -110,6 +119,7 @@ export default class ViewOneMovie extends Component {
             genre: this.state.genre,
             imdb: this.state.imdb,
             theaterOpt: this.state.theaterOpt,
+            quantity: this.state.quantity
 
         }
 
@@ -162,10 +172,14 @@ export default class ViewOneMovie extends Component {
                                         <option value="4K CINEMA">4K CINEMA</option>
                                         <option value="DOLBY THEATER">DOLBY THEATER</option>
                                     </select>
-                                    <br />
+                                    {/* <br /> */}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    <label className='labelMOD'> Tickets Quantity : </label>	&nbsp;
+                                    <input type="number" onChange={this.onChangeQuanity} placeholder="Quanity" /> <br />
 
                                     <div className="btnView">
-                                        <button style={{ marginTop: "30px" }} onClick={this.onSubmit} > Add to Cart </button>
+                                        <button style={{ marginTop: "20px" }} onClick={this.onSubmit} > Add to Cart </button>
                                     </div>
                                     <div className="btnCancel">
                                         <Link to={"/movie/view"}> <button className="btn btn-primary" style={{ marginLeft: "15px", marginTop: "7px" }}>Cancel</button></Link>
