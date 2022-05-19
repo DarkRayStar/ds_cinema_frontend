@@ -36,7 +36,14 @@ export default class ViewCart extends Component {
         axios.get('http://localhost:5050/cart/')
             .then(response => {
                 this.setState({ movies: response.data })
-                // console.log(response.data);
+                // console.log(this.state.movies);
+
+                // window.sessionStorage.setItem("items", JSON.stringify(testArray));
+                // var storedArray = JSON.parse(sessionStorage.getItem("items"));//no brackets
+
+                
+                sessionStorage.setItem('cart',JSON.stringify(this.state.movies));
+                console.log(sessionStorage.getItem('cart'));
             })
             .catch((error) => {
                 console.log(error);

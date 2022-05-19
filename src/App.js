@@ -33,7 +33,7 @@ function App() {
         <Navbar />
 
         <div className="container" >
-          <Route path="/home" exact component={HomePage} />
+          <Route path="/home" component={HomePage} />
           <Route path="/admin-retrieve" component={adminRetrieve} />
           <Route path="/admin-insert" component={adminInsert} />
           <Route path="/admin-update/:id" component={adminUpdate} />
@@ -48,17 +48,13 @@ function App() {
 
           {/* user management */}
           <Route
-            path="/welcome-customer"
-            exact
-            component={loginRegistrationUI}
+            path="/welcome-customer" component={loginRegistrationUI}
           />
           <Route
-            path="/customer-signUp"
-            exact
-            component={CustomerRegistration}
+            path="/customer-signUp" component={CustomerRegistration}
           />
           <Route path="/customer-signIn" exact component={CustomerLogin} />
-          <Route path="/admin-signIn" exact component={AdminLogin} />
+          <Route path="/admin-signIn" component={AdminLogin} />
         </div>
       </div>
     </Router>
