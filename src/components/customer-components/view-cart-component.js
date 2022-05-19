@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import './viewMod.css';
+import './viewMovieStyles.css';
 
 const Movie = props => (
     <tr>
         <td>{props.movie.movieName}</td>
         <td>{props.movie.producer}</td>
         <td>{props.movie.year} </td>
-        <td>{props.movie.imageurl} </td>
         <td>{props.movie.genre} </td>
         <td>{props.movie.imdb} </td>
         <td>{props.movie.theaterOpt} </td>
@@ -103,17 +103,16 @@ export default class ViewCart extends Component {
     render() {
         return (
             <div>
-                <h3>Cart</h3>
-                <table className="table">
-                    <thead className="thead-light">
+                <div className="headingModsForViewVcl"> Movie Cart  </div>
+                <table className="table table-hover table-bordered">
+                    <thead className="table-dark">
                         <tr>
                             <th>Movie name</th>
                             <th>Producer</th>
                             <th>Year</th>
-                            <th>Imageurl</th>
                             <th>Genre</th>
                             <th>IMDB</th>
-                            <th>theaterOpt</th>
+                            <th>Theater Option</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
