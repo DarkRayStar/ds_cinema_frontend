@@ -19,6 +19,7 @@ import adminInsert from './components/admin-components/admin-insert';
 import adminUpdate from './components/admin-components/admin-update';
 import HomePage from './components/user-components/HomePage';
 import Navbar from './components/navbar.component';
+import QrGencomponent from './components/admin-components/qr-gencomponent';
 
 import successPage from './components/payment_components/successPage';
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/admin-insert" component={adminInsert} />
           <Route path="/admin-update/:id" component={adminUpdate} />
           <Route path="/home" exact component={HomePage} />
+          <Route path="/qrgen" component={QrGencomponent} />
 
           <Route path="/movie/view" component={ViewMovieComponent} />
           <Route path="/one-movie/view/:id" component={ViewOneMovie} />
