@@ -7,6 +7,7 @@ export default class Navbar extends Component {
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <Link to="/" className="navbar-brand" style={{ paddingLeft: "650px" }}> CINEPLEX CINEMA INC</Link>
+
         <div className="collapse navbar-collapse">
           {/* <ul className="navbar-nav mr-auto">
             <li className="navbar-item">

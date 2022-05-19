@@ -63,15 +63,18 @@ const HomePage = () => {
                                         position='top'
                                         style={{ width: '300px', height: '425px' }}
                                     />
-                                    <MDBCardBody>
-                                        <MDBCardTitle> {movie.movieName} </MDBCardTitle>
-                                        <MDBCardText>
+                                    <MDBCardBody >
+                                        <MDBCardTitle > {movie.movieName} </MDBCardTitle>
+                                        <MDBCardText >
                                             {movie.year}
-                                        </MDBCardText>
+                                        </MDBCardText> 
                                     </MDBCardBody>
                                     <MDBCardFooter>
-                                        <small className='text-muted'> {movie.genre}</small>
-                                        <Link to={"/one-movie/view/" + movie._id}><MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float: "right" }}> More </MDBBtn></Link>
+
+                                        <small className='text-muted'> {movie.genre}</small> |
+                                        <small className='text-muted'> {movie.imdb} imdb Rating</small>
+                                        <MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float:"right" }}> More </MDBBtn>
+
                                     </MDBCardFooter>
                                 </MDBCard>
                             </MDBCol>
