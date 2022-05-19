@@ -46,31 +46,31 @@ const HomePage = () => {
 
             <div className="col-12 mb-5">
                 <div className="mb-3 col-4 mx-auto text-center">
-                    <label className="form-label h4"> Search </label>
+                    <label className="form-label h4 mt-3"> Search </label>
                     <input className="form-control" type="text" value={filter} onChange={searchText.bind(this)} />
                 </div>
             </div>
-            <div>
-                <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{ textAlign: 'center'}}>
+            <div class="mx-auto">
+                <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{ paddingLeft: '80px' }}>
                     {dataSearch.map((movie, index) => {
                         return (
                             <MDBCol>
-                                <MDBCard className='h-100' style={{ width: '350px'}}>
+                                <MDBCard className='h-100' style={{ width: '300px' }}>
                                     <MDBCardImage
                                         src={movie.imageurl}
                                         alt='...'
                                         position='top'
-                                        style={{ width: '150px'}}
+                                        style={{ width: '300px', height: '425px' }}
                                     />
                                     <MDBCardBody>
                                         <MDBCardTitle> {movie.movieName} </MDBCardTitle>
                                         <MDBCardText>
-                                            {movie.desciption}
+                                            {movie.year}
                                         </MDBCardText>
-                                        <MDBBtn href='#'> More </MDBBtn>
                                     </MDBCardBody>
                                     <MDBCardFooter>
-                                        <small className='text-muted'> {movie.showtime}</small>
+                                        <small className='text-muted'> {movie.genre}</small>
+                                        <MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float:"right" }}> More </MDBBtn>
                                     </MDBCardFooter>
                                 </MDBCard>
                             </MDBCol>
