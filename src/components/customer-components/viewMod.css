@@ -96,17 +96,16 @@
 
 .pView1 {
     font-size: 14px;
-    margin-left: 90px;
     display: flex;
-    margin: 20px 0 10px;
+    margin: 15px 0 0px;
     font-weight: 600;
 }
 
 .pView2 {
     font-size: 16px;
-    margin-left: 90px;
     display: flex;
-    margin: 20px 0 10px;
+    margin: 10px 0 2px;
+    padding-top: 0px;
     font-weight: 350;
 }
 

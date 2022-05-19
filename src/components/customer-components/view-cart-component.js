@@ -12,6 +12,7 @@ const Movie = props => (
         <td>{props.movie.genre} </td>
         <td>{props.movie.imdb} </td>
         <td>{props.movie.theaterOpt} </td>
+        <td>{props.movie.quantity} </td>
         <td>
             <a href="#" onClick={() => { props.deleteItem(props.movie._id) }}>Remove</a>
         </td>
@@ -58,7 +59,7 @@ export default class ViewCart extends Component {
 
     async onCheckout() {
 
-       await axios.get('http://localhost:5050/cart/')
+        await axios.get('http://localhost:5050/cart/')
             .then(response => {
                 this.setState({ checkoutMap: response.data })
                 console.log(this.state.checkoutMap.length);
@@ -85,8 +86,8 @@ export default class ViewCart extends Component {
             },
             body: JSON.stringify({
                 items: this.state.items
-              }
-              )
+            }
+            )
         })
             .then(res => {
                 if (res.ok) return res.json()
@@ -113,6 +114,7 @@ export default class ViewCart extends Component {
                             <th>Genre</th>
                             <th>IMDB</th>
                             <th>Theater Option</th>
+                            <th>Quantity</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
