@@ -136,7 +136,6 @@ export default class ViewOneMovie extends Component {
         return (
             <div>
 
-
                 <header class="section ">
                     <section class="full-width ">
                         <div className="row">
@@ -172,11 +171,11 @@ export default class ViewOneMovie extends Component {
                                         <option value="4K CINEMA">4K CINEMA</option>
                                         <option value="DOLBY THEATER">DOLBY THEATER</option>
                                     </select>
-                                    {/* <br /> */}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <br />
+                                    {/* &nbsp;&nbsp;&nbsp;&nbsp; */}
 
-                                    <label className='labelMOD'> Tickets Quantity : </label>	&nbsp;
-                                    <input type="number" onChange={this.onChangeQuanity} placeholder="Quanity" /> <br />
+                                    <label className='labelMOD'> Number of Tickets  : </label>	&nbsp;
+                                    <input type="number" onChange={this.onChangeQuanity} placeholder="Tickets" style={{ marginTop: "7px" }} /> <br />
 
                                     <div className="btnView">
                                         <button style={{ marginTop: "20px" }} onClick={this.onSubmit} > Add to Cart </button>
