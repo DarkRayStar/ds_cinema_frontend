@@ -26,10 +26,10 @@ import successPage from "./components/payment_components/successPage";
 <link rel="stylesheet" href="./" />;
 
 function App() {
-  var bgColors = { Blue: "#00B1E1", Lgrey: "LightGray" };
+  var bgColors = { Blue: "#00B1E1", Lgrey: "darkgray" };
   return (
     <Router>
-      <div style={{ backgroundColor: bgColors.Lgrey }}>
+      <div style={{ backgroundColor: bgColors.Lgrey, height: "100%" }}>
         <Navbar />
 
         <div className="container" >

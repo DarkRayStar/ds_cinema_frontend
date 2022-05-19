@@ -134,7 +134,7 @@ export default class ViewOneMovie extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ paddingBottom: "115px" }}>
 
                 <header class="section ">
                     <section class="full-width ">
@@ -188,47 +188,6 @@ export default class ViewOneMovie extends Component {
                         </div>
                     </section>
                 </header>
-
-
-
-
-
-                {/* <h3>Your Movie</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Movie Name : </label> {this.state.movieName} {this.onChangeMovieName}
-                    </div>
-                    <div className="form-group">
-                        <label>Producer: </label> {this.state.producer}{this.onChangeProducer}
-                    </div>
-                    <div className="form-group">
-                        <label>Year : </label> {this.state.year} {this.onChangeYear}
-                    </div>
-                    <div className="form-group">
-                        <label>imageurl : </label> <img src={this.state.imageurl} /> {this.onChangeImageurl}
-                    </div>
-                    <div className="form-group">
-                        <label>Genre : </label> {this.state.genre} {this.onChangeGenre}
-                    </div>
-                    <div className="form-group">
-                        <label>IMDB : </label> {this.state.imdb} {this.onChangeImdb}
-                    </div>
-                    <div className="form-group">
-                        <label>Theater : </label>
-
-                        <select name="state" id="state"
-                            onChange={this.onChangeTeaterOption}>
-                            <option value="" selected>Choose</option>
-                            <option value="4K CINEMA">4K CINEMA</option>
-                            <option value="DOLBY THEATER">DOLBY THEATER</option>
-                        </select>
-                    </div>
-                    <br />
-                    <div className="form-group">
-                        <input type="submit" value="Add to cart" className="btn btn-primary" />
-                        <Link to={"/movie/view"}> <button className="btn btn-primary" style={{ marginLeft: "10px" }}>Cancel</button></Link>
-                    </div>
-                </form> */}
             </div>
         )
     }
