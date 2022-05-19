@@ -59,6 +59,9 @@ export default class ViewCart extends Component {
 
     async onCheckout() {
 
+        axios.delete('http://localhost:5050/cart/')
+            .then(res => console.log(res.data));
+
         await axios.get('http://localhost:5050/cart/')
             .then(response => {
                 this.setState({ checkoutMap: response.data })
