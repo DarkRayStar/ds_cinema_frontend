@@ -125,7 +125,12 @@ export default class ViewCart extends Component {
                         {this.movieList()} <br />
                     </tbody>
                 </table>
-                <button className="btn btn-primary" style={{ marginLeft: "550px" }} onClick={() => this.onCheckout()} >Checkout</button>
+                <div className="btnView">
+                    <button style={{ marginLeft: "550px" }} onClick={() => this.onCheckout()} >Checkout</button>
+                </div>
+                <div className="btnCancel">
+                    <Link to={"/home"}> <button style={{ marginLeft: "15px" }}>Back</button></Link>
+                </div>
             </div>
         )
     }

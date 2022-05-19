@@ -28,10 +28,10 @@ function App() {
   var bgColors = { Blue: "#00B1E1", Lgrey: "LightGray" };
   return (
     <Router>
-      <div>
+      <div style={{ backgroundColor: bgColors.Lgrey }}>
         <Navbar />
 
-        <div className="container" style={{ backgroundColor: bgColors.Lgrey }}>
+        <div className="container" >
           <Route path="/home" exact component={HomePage} />
           <Route path="/admin-retrieve" component={adminRetrieve} />
           <Route path="/admin-insert" component={adminInsert} />
