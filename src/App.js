@@ -37,9 +37,8 @@ function App() {
           <Route path="/admin-retrieve" component={adminRetrieve} />
           <Route path="/admin-insert" component={adminInsert} />
           <Route path="/admin-update/:id" component={adminUpdate} />
-          <Route path="/home" exact component={HomePage} />
           <Route path="/qrgen" component={QrGencomponent} />
-            
+
           <Route path="/movie/view" component={ViewMovieComponent} />
           <Route path="/one-movie/view/:id" component={ViewOneMovie} />
           <Route path="/cart/view/" component={ViewCart} />
