@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './viewMod.css';
+import './viewMovieStyles.css';
 
 export default class ViewOneMovie extends Component {
     constructor(props) {
@@ -9,6 +11,7 @@ export default class ViewOneMovie extends Component {
         this.onChangeMovieName = this.onChangeMovieName.bind(this);
         this.onChangeProducer = this.onChangeProducer.bind(this);
         this.onChangeYear = this.onChangeYear.bind(this);
+        // this.onChangeDescription = this.onChangeDescription(this);
         this.onChangeImageurl = this.onChangeImageurl.bind(this);
         this.onChangeGenre = this.onChangeGenre.bind(this);
         this.onChangeImdb = this.onChangeImdb.bind(this);
@@ -19,6 +22,7 @@ export default class ViewOneMovie extends Component {
             movieName: '',
             producer: '',
             year: '',
+            Description: '',
             imageurl: '',
             genre: '',
             imdb: '',
@@ -33,12 +37,13 @@ export default class ViewOneMovie extends Component {
                     movieName: response.data.movieName,
                     producer: response.data.producer,
                     year: response.data.year,
+                    Description: response.data.Description,
                     imageurl: response.data.imageurl,
                     genre: response.data.genre,
                     imdb: response.data.imdb,
                     theaterOpt: response.data.theaterOpt,
                 })
-                // console.log(this.props.match.params.id);
+                console.log(response);
             })
 
             .catch(function (error) {
@@ -64,11 +69,11 @@ export default class ViewOneMovie extends Component {
         })
     }
 
-    onChangeDescription(e) {
-        this.setState({
-            Description: e.target.value
-        })
-    }
+    // onChangeDescription(e) {
+    //     this.setState({
+    //         Description: e.target.value
+    //     })
+    // }
 
     onChangeImageurl(e) {
         this.setState({
@@ -100,6 +105,7 @@ export default class ViewOneMovie extends Component {
             movieName: this.state.movieName,
             producer: this.state.producer,
             year: this.state.year,
+            // Description: this.state.Description,
             imageurl: this.state.imageurl,
             genre: this.state.genre,
             imdb: this.state.imdb,
@@ -113,13 +119,68 @@ export default class ViewOneMovie extends Component {
             .then(res => console.log(res.data));
 
         alert("Movie added to the Cart !")
-        window.location = '/movie/view';
+        window.location = '/cart/view';
     }
 
     render() {
         return (
             <div>
-                <h3>Your Movie</h3>
+
+
+                <header class="section ">
+                    <section class="full-width ">
+                        <div className="row">
+                            <div className="headingModsForViewVcl"> Book Your Movie </div>
+
+                            <div class="containerView" >
+
+                                <img src={this.state.imageurl} alt="img" />
+
+                                <div class="containerViewHeading ">
+                                    <div class="containerViewH1 ">
+                                        {this.state.movieName}
+                                    </div>
+                                    <div class="containerViewSubHead">
+                                        IMDB {this.state.imdb} <br /> {this.state.genre}
+
+                                    </div>
+                                    <div class="pView1">
+                                        <p>
+                                            {this.state.Description}
+
+                                        </p>
+                                    </div>
+                                    <div class="pView2">
+                                        <p>
+                                            Produced by {this.state.producer} in {this.state.year}.
+                                        </p>
+                                    </div>
+                                    <label className='labelMOD'> Select a theater option : </label>	&nbsp;
+                                    <select name="state" id="state"
+                                        onChange={this.onChangeTeaterOption}>
+                                        <option value="" selected>Choose option</option>
+                                        <option value="4K CINEMA">4K CINEMA</option>
+                                        <option value="DOLBY THEATER">DOLBY THEATER</option>
+                                    </select>
+                                    <br />
+
+                                    <div className="btnView">
+                                        <button style={{ marginTop: "30px" }} onClick={this.onSubmit} > Add to Cart </button>
+                                    </div>
+                                    <div className="btnCancel">
+                                        <Link to={"/movie/view"}> <button className="btn btn-primary" style={{ marginLeft: "15px", marginTop: "7px" }}>Cancel</button></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </header>
+
+
+
+
+
+                {/* <h3>Your Movie</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Movie Name : </label> {this.state.movieName} {this.onChangeMovieName}
@@ -131,7 +192,7 @@ export default class ViewOneMovie extends Component {
                         <label>Year : </label> {this.state.year} {this.onChangeYear}
                     </div>
                     <div className="form-group">
-                        <label>imageurl : </label> {this.state.imageurl} {this.onChangeImageurl}
+                        <label>imageurl : </label> <img src={this.state.imageurl} /> {this.onChangeImageurl}
                     </div>
                     <div className="form-group">
                         <label>Genre : </label> {this.state.genre} {this.onChangeGenre}
@@ -154,7 +215,7 @@ export default class ViewOneMovie extends Component {
                         <input type="submit" value="Add to cart" className="btn btn-primary" />
                         <Link to={"/movie/view"}> <button className="btn btn-primary" style={{ marginLeft: "10px" }}>Cancel</button></Link>
                     </div>
-                </form>
+                </form> */}
             </div>
         )
     }
