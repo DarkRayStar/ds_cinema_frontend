@@ -51,8 +51,8 @@ export default class CustomerLogin extends Component {
                 password:''
             })
 
-            //naviagte to the home page
-            //this.props.history.push('/home');
+            // naviagte to the home page
+            this.props.history.push('/home');
 
     }
 

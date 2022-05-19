@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import QRCode from 'qrcode'
 
 function QrGencomponent() {
+  // var movies = JSON.parse(sessionStorage.getItem('cart'));
+  // const movies = sessionStorage.getItem('cart');
   const [url, setUrl] = useState('')
   const [qrcode, setQrCode] = useState('')
 

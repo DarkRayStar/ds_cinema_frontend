@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 import "./paymentSuccess.css";
 import "./correct.png"
+import QrGencomponent from "../admin-components/qr-gencomponent";
 
 export default class successPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        movies : sessionStorage.getItem('cart'),
+    };
+}
+
   render() {
     return (
       <div>
+        <QrGencomponent></QrGencomponent>
         <div class="container">
           <div class="row" style={{marginTop:'100px', height:'400px'}}>
             <div class="col-md-6 mx-auto mt-5">
