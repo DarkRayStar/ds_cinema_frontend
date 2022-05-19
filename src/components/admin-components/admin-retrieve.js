@@ -65,8 +65,8 @@ export default class adminRetrieve extends Component {
                               <td> {movie.imageurl} </td>
                               <td> {movie.genre} </td>
                               <td> {movie.imdb} </td>
-                              <td> {movie.showtime} </td>
                               <td> {movie.cast} </td>
+                              <td> {movie.showtime} </td>
                               <td> <Link to={"/admin-update/" + movie._id} > <button type="button" class="btn btn-info">Update</button></Link> |
                               <button onClick={() => this.onSubmit(movie._id)} type="button" class="btn btn-danger"> Delete</button>
                               </td>
