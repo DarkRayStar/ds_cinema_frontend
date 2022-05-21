@@ -16,6 +16,9 @@ import {
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
     const [filter, setFilter] = useState('');
+    const [loggeduser, setLoggeduser] = useState([]);
+
+    console.log('user : ', loggeduser._id);
 
     const searchText = (event) => {
         setFilter(event.target.value)
@@ -35,6 +38,8 @@ const HomePage = () => {
             }).catch(err => {
                 console.log(err)
             })
+
+            setLoggeduser(JSON.parse(sessionStorage.getItem("loggeduser")));
     }, [])
 
     return (

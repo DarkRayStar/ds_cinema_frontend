@@ -14,7 +14,8 @@ export default class CustomerLogin extends Component {
         this.state = {
             customers:[],
             email: '',
-            password: ''
+            password: '',
+            loggeduser: '',
         }
 
     }
@@ -44,7 +45,16 @@ export default class CustomerLogin extends Component {
             console.log(customerDetails);
         
             axios.post('http://localhost:5050/customer/login/', customerDetails)
-              .then(res => alert(res.data));
+              .then(res => {
+                // console.log(res.data.user); 
+                alert("Login Success");
+                window.sessionStorage.setItem("loggeduser", JSON.stringify(res.data.user));
+
+              });
+
+              console.log("hi");
+              // console.log(res.data);
+
         
             this.setState({
                 email: '',
