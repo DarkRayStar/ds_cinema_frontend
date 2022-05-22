@@ -7,6 +7,7 @@ export default class Navbar extends Component {
     // console.log('b4',window.sessionStorage.getItem('loggeduser'));
     sessionStorage.removeItem('loggeduser');
     console.log('after-deleted',window.sessionStorage.getItem('loggeduser'));
+    window.location='/'
   }
 
   render() {
