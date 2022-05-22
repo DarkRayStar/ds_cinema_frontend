@@ -3,27 +3,33 @@ import { Link } from 'react-router-dom';
 
 export default class Navbar extends Component {
 
-  logout(){
+  logout() {
     // console.log('b4',window.sessionStorage.getItem('loggeduser'));
     sessionStorage.removeItem('loggeduser');
-    console.log('after-deleted',window.sessionStorage.getItem('loggeduser'));
-    window.location='/'
+    console.log('after-deleted', window.sessionStorage.getItem('loggeduser'));
+    window.location = '/'
   }
 
   render() {
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <div style={{ paddingLeft:"650px" }}>
+        <div style={{ paddingLeft: "650px" }}>
           <Link to="/" className="navbar-brand"> CINEPLEX CINEMA INC</Link>
         </div>
-        <div className='container' style={{ paddingLeft:"570px" }}>
+        <div className='container' style={{ marginLeft: "350px" }} >
           <div>
-          <button onClick={this.logout.bind(this)} className='btn btn-outline-light' >
-            Logout
-          </button>
+            <Link to="/cart/view/" > <button style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
+              Cart </button></Link>
+
+            <Link to="/payment-paid" > <button style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
+              My Tickets </button></Link>
+
+            <button onClick={this.logout.bind(this)} style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
+              Logout
+            </button>
           </div>
         </div>
-      </nav>
+      </nav >
     );
   }
 }

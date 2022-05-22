@@ -31,25 +31,25 @@ export default class adminUpdate extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get('http://localhost:5050/movies/' + this.props.match.params.id)
-        .then((res) => {
-            let movie = res.data;
-            this.setState({
-                movieName: movie.movieName,
-                producer: movie.producer,
-                year: movie.year,
-                Description: movie.Description,
-                imageurl: movie.imageurl,
-                genre: movie.genre,
-                imdb:movie.imdb,
-                showtime:movie.showtime,
-                cast:movie.cast
+            .then((res) => {
+                let movie = res.data;
+                this.setState({
+                    movieName: movie.movieName,
+                    producer: movie.producer,
+                    year: movie.year,
+                    Description: movie.Description,
+                    imageurl: movie.imageurl,
+                    genre: movie.genre,
+                    imdb: movie.imdb,
+                    showtime: movie.showtime,
+                    cast: movie.cast
+                })
             })
-        })
     }
 
-    onChangeMovieName(e){
+    onChangeMovieName(e) {
         this.setState({
             movieName: e.target.value
         })
@@ -85,13 +85,13 @@ export default class adminUpdate extends Component {
             imdb: e.target.value
         });
     }
-    onChangeCast(e){
+    onChangeCast(e) {
         this.setState({
             cast: e.target.value
         });
     }
 
-    onChangeShowtime(e){
+    onChangeShowtime(e) {
         this.setState({
             showtime: e.target.value
         });
@@ -114,8 +114,8 @@ export default class adminUpdate extends Component {
 
         console.log(movie);
 
-        axios.post('http://localhost:5050/movies/update/'+ this.props.match.params.id , movie)
-            .then(res => console.log(res.data), alert("Successfully submitted the group"));
+        axios.post('http://localhost:5050/movies/update/' + this.props.match.params.id, movie)
+            .then(res => console.log(res.data), alert("Successfully submitted the Movie"));
 
         this.setState({
             movieName: '',
@@ -128,7 +128,7 @@ export default class adminUpdate extends Component {
             showtime: '',
             cast: ''
 
-            
+
         })
 
         window.location = '/admin-retrieve';
@@ -223,7 +223,7 @@ export default class adminUpdate extends Component {
 
                     <div className="form-group">
                         {/* <Link to="/admin-retrieve">  */}
-                        <input type="submit" value="Update Movie" className="btn btn-primary" /> 
+                        <input type="submit" value="Update Movie" className="btn btn-primary" />
                         {/* </Link> */}
                     </div>
                 </form>

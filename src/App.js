@@ -6,7 +6,7 @@ import "./App.css";
 
 import ViewOneMovie from "./components/customer-components/view-movie-component";
 import ViewCart from "./components/customer-components/view-cart-component";
-
+import PaidPage from "./components/payment_components/paidPage";
 
 //user management
 import CustomerRegistration from "./components/userManagement-component/customerRegistration.component";
@@ -35,8 +35,8 @@ function App() {
         <div className="container" >
 
           <Route path="/" exact component={CustomerLogin} />
-          <Route path="/customer-signUp"  component={CustomerRegistration} />
-          
+          <Route path="/customer-signUp" component={CustomerRegistration} />
+
           <Route path="/home" component={HomePage} />
           <Route path="/admin-retrieve" component={adminRetrieve} />
           <Route path="/admin-insert" component={adminInsert} />
@@ -47,9 +47,10 @@ function App() {
           <Route path="/cart/view/" component={ViewCart} />
 
           <Route path="/payment-success" component={successPage} />
+          <Route path="/payment-paid" component={PaidPage} />
 
           {/* user management */}
-          <Route path="/welcome-customer" component={loginRegistrationUI}/>
+          <Route path="/welcome-customer" component={loginRegistrationUI} />
           <Route path="/customer-signIn" component={CustomerLogin} />
           <Route path="/customer-signUp" component={CustomerRegistration} />
           <Route path="/admin-signIn" component={AdminLogin} />

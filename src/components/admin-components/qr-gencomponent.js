@@ -21,14 +21,14 @@ function QrGencomponent() {
   useEffect(() => {
     // console.log('11', JSON.parse(sessionStorage.getItem("loggeduser"))._id)
     setCheckout(JSON.parse(sessionStorage.getItem("loggeduser")));
-    setUrl( JSON.parse(sessionStorage.getItem("loggeduser"))._id);
-    console.log('Hello',url);
-    console.log('1hello',checkout);
+    setUrl(sessionStorage.getItem("ticketInfo"));
+    console.log('Hello', url);
+    console.log('1hello', checkout);
     // console.log('2', url);
   }, [])
 
   // setUrl(checkout);
-  console.log('1',checkout);
+  console.log('1', checkout);
   console.log('2', url);
 
   return (
