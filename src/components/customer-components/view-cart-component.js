@@ -66,8 +66,8 @@ export default class ViewCart extends Component {
 
     async onCheckout() {
 
-        axios.delete('http://localhost:5050/cart/')
-            .then(res => console.log(res.data));
+        // axios.delete('http://localhost:5050/cart/')
+        //     .then(res => console.log(res.data));
 
         await axios.get('http://localhost:5050/cart/')
             .then(response => {
@@ -82,6 +82,7 @@ export default class ViewCart extends Component {
                     // console.log(this.state.checkoutMap[i].movieName);
                     this.state.items.push({ id: this.state.checkoutMap[i].movieName + ' - ' + this.state.checkoutMap[i].theaterOpt, quantity: this.state.checkoutMap[i].quantity })
                 }
+                window.sessionStorage.setItem("checkout", JSON.stringify(this.state.checkoutMap));
                 console.log(this.state.items);
             })
 

@@ -15,9 +15,8 @@ export default class successPage extends Component {
   render() {
     return (
       <div>
-        <QrGencomponent></QrGencomponent>
         <div class="container">
-          <div class="row" style={{marginTop:'100px', height:'400px'}}>
+          <div class="row" style={{marginTop:'100px', height:'600px'}}>
             <div class="col-md-6 mx-auto mt-5">
               <div class="payment">
                 <div class="payment_header">
@@ -30,6 +29,7 @@ export default class successPage extends Component {
                   <p>
                     Thanks for your Booking. You will receive a payment confirmation after a while. Go to "My Tickets" Sections to view Purchased Tickets.
                   </p>
+                  <QrGencomponent></QrGencomponent>
                   <a href="http://localhost:3000/home" style={{textDecoration: "none"}}>Go to Home</a>
                 </div>
               </div>

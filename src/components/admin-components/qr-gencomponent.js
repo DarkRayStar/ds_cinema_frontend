@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import QRCode from 'qrcode'
 
 function QrGencomponent() {
@@ -6,10 +6,11 @@ function QrGencomponent() {
   // const movies = sessionStorage.getItem('cart');
   const [url, setUrl] = useState('')
   const [qrcode, setQrCode] = useState('')
+  const [checkout, setCheckout] = useState([])
 
   const GenerateQRCode = () => {
     QRCode.toDataURL(url, {
-      width: 400,
+      width: 200,
       margin: 1,
     }, (err, url) => {
       if (err) return console.error(err)
@@ -17,24 +18,28 @@ function QrGencomponent() {
     })
   }
 
+  useEffect(() => {
+    // console.log('11', JSON.parse(sessionStorage.getItem("loggeduser"))._id)
+    setCheckout(JSON.parse(sessionStorage.getItem("loggeduser")));
+    setUrl( JSON.parse(sessionStorage.getItem("loggeduser"))._id);
+    console.log('Hello',url);
+    console.log('1hello',checkout);
+    // console.log('2', url);
+  }, [])
+
+  // setUrl(checkout);
+  console.log('1',checkout);
+  console.log('2', url);
+
   return (
-    <div style={{ paddingBottom: "625px" }}>
-
-      <input type="text" className='inputMod'
-        placeholder="ENter the details"
-        value={url}
-        onChange={(evt) => setUrl(evt.target.value)} />
-
+    <div >
       <div className="btnView">
-        <button onClick={GenerateQRCode}> Generate </button>
+        <button className='btn btn-lg' onClick={GenerateQRCode}> Generate Qr </button>
       </div>
-      <br />
       {qrcode && <>
         <img src={qrcode} />
-        <br /><br />
         <a href={qrcode} class="fcc-btn" download="qrcode.png"> Download</a>
       </>}
-
     </div>
   )
 }

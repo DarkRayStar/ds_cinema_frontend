@@ -51,28 +51,29 @@ export default class AdminLogin extends Component {
             console.log(empDetails);
         
             axios.post('http://localhost:5050/admin/login/', empDetails)
-              .then(res => alert(res.data));
+              .then(res => {
+                alert(res.data)
+                //movie admin
+                console.log('email', this.state.email)
+                // if(this.state.email === 'saduni@gmail.com'){
+                        this.props.history.push('/admin-retrieve');
+                // }
+                // else if (this.state.email === 'sadun@gmail.com'){
+                    // this.props.history.push('/SystemAdminPage');
+                // }
+              });
         
             this.setState({
                 email: '',
                 password:''
             })
-
-            //movie admin
-            if(this.state.email === 'saduni@gmail.com'){
-                 this.props.history.push('/movieAdminPage');
-            }
-            else if (this.state.email === 'sadun@gmail.com'){ //system admin
-                this.props.history.push('/SystemAdminPage');
-            }
-
     }
 
 
     render() {
         return (
             <div>
-            <h3>Admin Login form</h3>
+            <h3>Admin Login</h3>
             <br/>
             <form onSubmit={this.onSubmit}>
     
