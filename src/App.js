@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
-import ViewMovieComponent from "./components/customer-components/all-movie-component";
+
 import ViewOneMovie from "./components/customer-components/view-movie-component";
 import ViewCart from "./components/customer-components/view-cart-component";
-import TheaterOption from "./components/customer-components/theater-option-component";
+
 
 //user management
 import CustomerRegistration from "./components/userManagement-component/customerRegistration.component";
@@ -33,6 +33,7 @@ function App() {
         <Navbar />
 
         <div className="container" >
+
           <Route path="/" exact component={CustomerLogin} />
           <Route path="/customer-signUp"  component={CustomerRegistration} />
           
@@ -42,10 +43,8 @@ function App() {
           <Route path="/admin-update/:id" component={adminUpdate} />
           <Route path="/qrgen" component={QrGencomponent} />
 
-          <Route path="/movie/view" component={ViewMovieComponent} />
           <Route path="/one-movie/view/:id" component={ViewOneMovie} />
           <Route path="/cart/view/" component={ViewCart} />
-          <Route path="/theater-option/" component={TheaterOption} />
 
           <Route path="/payment-success" component={successPage} />
 

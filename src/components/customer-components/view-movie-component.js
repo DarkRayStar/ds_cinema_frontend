@@ -28,7 +28,11 @@ export default class ViewOneMovie extends Component {
             genre: '',
             imdb: '',
             theaterOpt: '',
-            quantity: ''
+            quantity: '',
+            userId: JSON.parse(sessionStorage.getItem("loggeduser")).email,
+            showOnCart: true,
+            paidStatus: false,
+
         }
     }
 
@@ -119,7 +123,10 @@ export default class ViewOneMovie extends Component {
             genre: this.state.genre,
             imdb: this.state.imdb,
             theaterOpt: this.state.theaterOpt,
-            quantity: this.state.quantity
+            quantity: this.state.quantity,
+            userId: this.state.userId,
+            showOnCart: true,
+            paidStatus: false,
 
         }
 
@@ -166,7 +173,8 @@ export default class ViewOneMovie extends Component {
                                     </div>
                                     <label className='labelMOD'> Select a theater option : </label>	&nbsp;
                                     <select name="state" id="state"
-                                        onChange={this.onChangeTeaterOption}>
+                                        onChange={this.onChangeTeaterOption}
+                                        required >
                                         <option value="" selected>Choose option</option>
                                         <option value="4K CINEMA">4K CINEMA</option>
                                         <option value="DOLBY THEATER">DOLBY THEATER</option>
@@ -174,8 +182,8 @@ export default class ViewOneMovie extends Component {
                                     <br />
                                     {/* &nbsp;&nbsp;&nbsp;&nbsp; */}
 
-                                    <label className='labelMOD'> Number of Tickets  : </label>	&nbsp;
-                                    <input type="number" onChange={this.onChangeQuanity} placeholder="Tickets" style={{ marginTop: "7px" }} /> <br />
+                                    <label className='labelMOD' > Number of Tickets  : </label>	&nbsp;
+                                    <input type="number" min="1" required onChange={this.onChangeQuanity} placeholder="Tickets" style={{ marginTop: "7px" }} /> <br />
 
                                     <div className="btnView">
                                         <button style={{ marginTop: "20px" }} onClick={this.onSubmit} > Add to Cart </button>
@@ -188,7 +196,7 @@ export default class ViewOneMovie extends Component {
                         </div>
                     </section>
                 </header>
-            </div>
+            </div >
         )
     }
 }

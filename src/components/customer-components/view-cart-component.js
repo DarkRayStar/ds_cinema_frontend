@@ -28,12 +28,14 @@ export default class ViewCart extends Component {
         this.state = {
             movies: [],
             checkoutMap: [],
-            items: []
+            items: [],
+            showCart: [],
+            userId: JSON.parse(sessionStorage.getItem("loggeduser")).email,
         };
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:5050/cart/')
+    async componentDidMount() {
+        await axios.get('http://localhost:5050/cart/')
             .then(response => {
                 this.setState({ movies: response.data })
                 // console.log(this.state.movies);
@@ -41,9 +43,21 @@ export default class ViewCart extends Component {
                 // window.sessionStorage.setItem("items", JSON.stringify(testArray));
                 // var storedArray = JSON.parse(sessionStorage.getItem("items"));//no brackets
 
-                
-                sessionStorage.setItem('cart',JSON.stringify(this.state.movies));
-                console.log(sessionStorage.getItem('cart'));
+                var i = 0;
+                for (i = 0; i < this.state.movies.length; i++) {
+                    if (this.state.movies[i].showOnCart === true && this.state.movies[i].userId === this.state.userId) {
+                        this.state.showCart.push(this.state.movies[i]);
+                    }
+                }
+
+                //re-render setstate
+                this.setState({ topic: response.data })
+
+                console.log(this.state.movies);
+                console.log(this.state.showCart);
+
+                sessionStorage.setItem('cart', JSON.stringify(this.state.movies));
+                // console.log(sessionStorage.getItem('cart'));
             })
             .catch((error) => {
                 console.log(error);
@@ -51,15 +65,25 @@ export default class ViewCart extends Component {
     }
 
     deleteItem(id) {
-        axios.delete('http://localhost:5050/cart/' + id)
-            .then(response => { console.log(response.data) });
-        this.setState({
-            movies: this.state.movies.filter(el => el._id !== id)
-        })
+
+        var ask = window.confirm("Are you sure you want to remove this movie from a cart?");
+        if (ask) {
+            window.alert("This movie was successfully removed.");
+
+            axios.delete('http://localhost:5050/cart/' + id)
+                .then(response => { console.log(response.data) });
+            this.setState({
+                showCart: this.state.showCart.filter(el => el._id !== id)
+            })
+
+            window.location.href = "/cart/view";
+        }
+        else
+            window.location.href = "/cart/view";
     }
 
     movieList() {
-        return this.state.movies.map(currentmovie => {
+        return this.state.showCart.map(currentmovie => {
             return <Movie movie={currentmovie} deleteItem={this.deleteItem} key={currentmovie._id} />;
         })
     }
