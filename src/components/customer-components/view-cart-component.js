@@ -31,6 +31,7 @@ export default class ViewCart extends Component {
             items: [],
             showCart: [],
             userId: JSON.parse(sessionStorage.getItem("loggeduser")).email,
+            paidStatus: ''
         };
     }
 
@@ -43,17 +44,29 @@ export default class ViewCart extends Component {
                 // window.sessionStorage.setItem("items", JSON.stringify(testArray));
                 // var storedArray = JSON.parse(sessionStorage.getItem("items"));//no brackets
 
+                var ticketInfo = '';
                 var i = 0;
                 for (i = 0; i < this.state.movies.length; i++) {
-                    if (this.state.movies[i].showOnCart === true && this.state.movies[i].userId === this.state.userId) {
+                    if (this.state.movies[i].showOnCart === true &&
+                        this.state.movies[i].userId === this.state.userId &&
+                        this.state.movies[i].paidStatus === false) {
                         this.state.showCart.push(this.state.movies[i]);
+
+                        ticketInfo = ticketInfo + 'Movie: '
+                            + this.state.movies[i].movieName + ' ' + ' Theater: '
+                            + this.state.movies[i].theaterOpt + ' ' + ' Tickets: '
+                            + this.state.movies[i].quantity + ' | ';
                     }
                 }
+                ticketInfo = 'User: ' + JSON.parse(sessionStorage.getItem("loggeduser")).email + ' | ' + ticketInfo;
 
                 //re-render setstate
                 this.setState({ topic: response.data })
+                window.sessionStorage.setItem('ticketInfo', ticketInfo);
 
-                console.log(this.state.movies);
+                console.log(ticketInfo);
+
+                // console.log(this.state.movies);
                 console.log(this.state.showCart);
 
                 sessionStorage.setItem('cart', JSON.stringify(this.state.movies));
@@ -90,9 +103,6 @@ export default class ViewCart extends Component {
 
     async onCheckout() {
 
-        // axios.delete('http://localhost:5050/cart/')
-        //     .then(res => console.log(res.data));
-
         await axios.get('http://localhost:5050/cart/')
             .then(response => {
                 this.setState({ checkoutMap: response.data })
@@ -102,12 +112,12 @@ export default class ViewCart extends Component {
             })
             .then(() => {
                 var i = 0;
-                for (i = 0; i < this.state.checkoutMap.length; i++) {
+                for (i = 0; i < this.state.showCart.length; i++) {
                     // console.log(this.state.checkoutMap[i].movieName);
-                    this.state.items.push({ id: this.state.checkoutMap[i].movieName + ' - ' + this.state.checkoutMap[i].theaterOpt, quantity: this.state.checkoutMap[i].quantity })
+                    this.state.items.push({ id: this.state.showCart[i].movieName + ' - ' + this.state.showCart[i].theaterOpt, quantity: this.state.showCart[i].quantity })
                 }
-                window.sessionStorage.setItem("checkout", JSON.stringify(this.state.checkoutMap));
-                console.log(this.state.items);
+                window.sessionStorage.setItem("checkout", JSON.stringify(this.state.showCart));
+                console.log('items', this.state.items);
             })
 
             .catch((error) => {
