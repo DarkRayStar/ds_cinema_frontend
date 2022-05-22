@@ -106,6 +106,7 @@ export default class ViewCart extends Component {
                     // console.log(this.state.checkoutMap[i].movieName);
                     this.state.items.push({ id: this.state.checkoutMap[i].movieName + ' - ' + this.state.checkoutMap[i].theaterOpt, quantity: this.state.checkoutMap[i].quantity })
                 }
+                window.sessionStorage.setItem("checkout", JSON.stringify(this.state.checkoutMap));
                 console.log(this.state.items);
             })
 
