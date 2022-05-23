@@ -124,7 +124,7 @@ export default class ViewCart extends Component {
                 console.log(error);
             })
 
-        await fetch("http://localhost:5050/create-checkout-session", {
+        await fetch("http://localhost:8280/checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
