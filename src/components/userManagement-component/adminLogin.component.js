@@ -50,7 +50,7 @@ export default class AdminLogin extends Component {
     
             console.log(empDetails);
         
-            axios.post('http://localhost:5050/admin/login/', empDetails)
+            axios.post('http://localhost:8280/admin/login/', empDetails)
               .then(res => {
                 alert(res.data)
                 //movie admin

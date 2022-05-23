@@ -67,7 +67,7 @@ export default class CustomerRegistration extends Component {
     
             console.log(customerDetails);
         
-            axios.post('http://localhost:5050/customer/registration/', customerDetails)
+            axios.post('http://localhost:8280/customer/registration/', customerDetails)
               .then(res => alert(res.data));
         
             this.setState({
@@ -132,12 +132,7 @@ export default class CustomerRegistration extends Component {
     
               <div className="form-group">
                 <input type="submit" value="SignUP" className="btn btn-primary" />
-              </div> 
-
-              {/* <div className="form-group"> 
-                <label>Do you already have an account? </label>
-                <button className="btn btn-primary" onClick={this.onChangeToLogin}> SignIn </button>
-                </div> */}
+              </div>
             </form>
           </div>
         )

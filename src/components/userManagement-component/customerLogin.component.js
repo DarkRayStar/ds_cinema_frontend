@@ -44,7 +44,7 @@ export default class CustomerLogin extends Component {
     
             console.log(customerDetails);
         
-            axios.post('http://localhost:5050/customer/login/', customerDetails)
+            axios.post('http://localhost:8280/customer/login/', customerDetails)
               .then(res => {
                 console.log('loginPage',res.data.user); 
                 alert("Login Success");
