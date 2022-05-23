@@ -9,10 +9,9 @@ import ViewCart from "./components/customer-components/view-cart-component";
 import PaidPage from "./components/payment_components/paidPage";
 
 //user management
-import CustomerRegistration from "./components/userManagement-component/customerRegistration.component";
-import CustomerLogin from "./components/userManagement-component/customerLogin.component";
-import AdminLogin from "./components/userManagement-component/adminLogin.component";
-import loginRegistrationUI from "./components/userManagement-component/loginRegistrationUI.component";
+import CustomerRegistration from "./components/userManagement-component/customer/registration/customerRegistration.component";
+import CustomerLogin from "./components/userManagement-component/customer/login/customerLogin.component";
+import AdminLogin from "./components/userManagement-component/admin/adminLogin.component";
 
 import adminRetrieve from './components/admin-components/admin-retrieve';
 import adminInsert from './components/admin-components/admin-insert';
@@ -35,7 +34,6 @@ function App() {
         <div className="container" >
 
           <Route path="/" exact component={CustomerLogin} />
-          <Route path="/customer-signUp" component={CustomerRegistration} />
 
           <Route path="/home" component={HomePage} />
           <Route path="/admin-retrieve" component={adminRetrieve} />
@@ -50,7 +48,6 @@ function App() {
           <Route path="/payment-paid" component={PaidPage} />
 
           {/* user management */}
-          <Route path="/welcome-customer" component={loginRegistrationUI} />
           <Route path="/customer-signIn" component={CustomerLogin} />
           <Route path="/customer-signUp" component={CustomerRegistration} />
           <Route path="/admin-signIn" component={AdminLogin} />
