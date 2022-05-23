@@ -29,7 +29,7 @@ const HomePage = () => {
     });
 
     useEffect(() => {
-        axios.get("http://localhost:5050/movies")
+        axios.get("http://localhost:8280/movies")
             .then(res => {
                 console.log(res)
                 setMovies(res.data)

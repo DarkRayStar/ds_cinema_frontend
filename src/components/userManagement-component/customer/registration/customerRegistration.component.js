@@ -67,7 +67,7 @@ export default class CustomerRegistration extends Component {
 
         console.log(customerDetails);
 
-        axios.post('http://localhost:5050/customer/registration/', customerDetails)
+        axios.post('http://localhost:8280/customer/registration/', customerDetails)
             .then(res => alert(res.data));
 
         this.setState({

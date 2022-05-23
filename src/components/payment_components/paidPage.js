@@ -32,7 +32,7 @@ export default class PaidPage extends Component {
   }
 
   async componentDidMount() {
-    await axios.get('http://localhost:5050/cart/')
+    await axios.get('http://localhost:8280/cart/')
       .then(response => {
         this.setState({ movies: response.data })
 
