@@ -32,7 +32,7 @@ export default class adminUpdate extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5050/movies/' + this.props.match.params.id)
+        axios.get('http://localhost:8280/movies/' + this.props.match.params.id)
             .then((res) => {
                 let movie = res.data;
                 this.setState({
@@ -114,7 +114,7 @@ export default class adminUpdate extends Component {
 
         console.log(movie);
 
-        axios.post('http://localhost:5050/movies/update/' + this.props.match.params.id, movie)
+        axios.post('http://localhost:8280/movies/update/' + this.props.match.params.id, movie)
             .then(res => console.log(res.data), alert("Successfully submitted the Movie"));
 
         this.setState({

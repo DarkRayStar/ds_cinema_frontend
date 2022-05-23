@@ -15,7 +15,7 @@ export default class adminRetrieve extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5050/movies/")
+        axios.get("http://localhost:8280/movies/")
             .then((res) => {
                 this.setState({ movies: res.data });
                 console.log(this.state.movies);
@@ -23,7 +23,7 @@ export default class adminRetrieve extends Component {
     }
 
     onSubmit(id) {
-        axios.delete("http://localhost:5050/movies/" + id)
+        axios.delete("http://localhost:8280/movies/" + id)
             .then((res) => {
                 alert("Successfully deleted");
                 window.location = '/admin-retrieve';

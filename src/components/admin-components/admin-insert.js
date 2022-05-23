@@ -95,7 +95,7 @@ export default class adminInsert extends Component {
 
         console.log(movie);
 
-        axios.post('http://localhost:5050/movies/add', movie)
+        axios.post('http://localhost:8280/movies/add', movie)
             .then(res => console.log(res.data), alert("Successfully submitted the group"));
 
         this.setState({

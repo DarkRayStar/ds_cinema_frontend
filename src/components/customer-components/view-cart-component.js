@@ -36,7 +36,7 @@ export default class ViewCart extends Component {
     }
 
     async componentDidMount() {
-        await axios.get('http://localhost:5050/cart/')
+        await axios.get('http://localhost:8280/cart/')
             .then(response => {
                 this.setState({ movies: response.data })
                 // console.log(this.state.movies);
@@ -83,7 +83,7 @@ export default class ViewCart extends Component {
         if (ask) {
             window.alert("This movie was successfully removed.");
 
-            axios.delete('http://localhost:5050/cart/' + id)
+            axios.delete('http://localhost:8280/cart/' + id)
                 .then(response => { console.log(response.data) });
             this.setState({
                 showCart: this.state.showCart.filter(el => el._id !== id)
@@ -103,7 +103,7 @@ export default class ViewCart extends Component {
 
     async onCheckout() {
 
-        await axios.get('http://localhost:5050/cart/')
+        await axios.get('http://localhost:8280/cart/')
             .then(response => {
                 this.setState({ checkoutMap: response.data })
                 console.log(this.state.checkoutMap.length);
@@ -124,7 +124,7 @@ export default class ViewCart extends Component {
                 console.log(error);
             })
 
-        await fetch("http://localhost:5050/create-checkout-session", {
+        await fetch("http://localhost:8280/checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
