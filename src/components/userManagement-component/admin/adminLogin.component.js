@@ -48,62 +48,27 @@ export default class AdminLogin extends Component {
             email: this.state.email,
             password: this.state.password,
         }
-
-        console.log(empDetails);
-
         axios.post('http://localhost:8280/admin/login/', empDetails)
             .then(res => {
-                alert(res.data)
-                //movie admin
-                console.log('email', this.state.email)
-                // if(this.state.email === 'saduni@gmail.com'){
-                this.props.history.push('/admin-retrieve');
-                // }
-                // else if (this.state.email === 'sadun@gmail.com'){
-                // this.props.history.push('/SystemAdminPage');
-                // }
+                if (res.data.status === 200) {
+                    // navigate to the admin home
+                    alert("Login Success");
+                    this.setState({
+                        email: '',
+                        password: ''
+                    })
+                    this.props.history.push("/admin-retrieve");
+                  } else {
+                    alert("Login Failed. Please re-check your credentials.");
+                  }
             });
 
-        this.setState({
-            email: '',
-            password: ''
-        })
+        
     }
 
 
     render() {
         return (
-            //     <div>
-            //     <h3>Admin Login</h3>
-            //     <br/>
-            //     <form onSubmit={this.onSubmit}>
-
-            //       <div className="form-group"> 
-            //         <label>Admin Email: </label>
-            //         <input  type="email"
-            //             required
-            //             className="form-control"
-            //             value={this.state.email}
-            //             onChange={this.onChangeAdminEmail}
-            //             />
-            //       </div>
-
-            //       <div className="form-group"> 
-            //         <label>Password: </label>
-            //         <input  type="password"
-            //             required
-            //             className="form-control"
-            //             value={this.state.password}
-            //             onChange={this.onChangeAdminPassword}
-            //             />
-            //       </div>
-
-            //       <div className="form-group">
-            //         <input type="submit" value="Login" className="btn btn-primary" />
-            //       </div> 
-            //     </form>
-            //   </div>
-
             <div className={styles.login_container}>
                 <div className={styles.login_form_container}>
                     <div className={styles.left}>
@@ -134,7 +99,7 @@ export default class AdminLogin extends Component {
 
 
                             <button type="submit" className={styles.green_btn}>
-                                Sing In
+                                Sign in
                             </button>
 
                         </form>
