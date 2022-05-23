@@ -37,7 +37,7 @@ export default class ViewOneMovie extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5050/movies/' + this.props.match.params.id)
+        axios.get('http://localhost:8280/movies/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     movieName: response.data.movieName,
@@ -132,7 +132,7 @@ export default class ViewOneMovie extends Component {
 
         console.log(movie);
 
-        axios.post('http://localhost:5050/cart/add', movie)
+        axios.post('http://localhost:8280/cart/add', movie)
             .then(res => console.log(res.data));
 
         alert("Movie added to the Cart !")

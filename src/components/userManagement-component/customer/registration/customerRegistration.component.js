@@ -67,7 +67,7 @@ export default class CustomerRegistration extends Component {
 
         console.log(customerDetails);
 
-        axios.post('http://localhost:5050/customer/registration/', customerDetails)
+        axios.post('http://localhost:8280/customer/registration/', customerDetails)
             .then(res => alert(res.data));
 
         this.setState({
@@ -85,66 +85,6 @@ export default class CustomerRegistration extends Component {
 
     render() {
         return (
-            //     <div>
-            //     <h3>Customer Registration form</h3>
-            //     <br/>
-            //     <form onSubmit={this.onSubmit}>
-
-            //       <div className="form-group"> 
-            //         <label>Customer first Name: </label>
-            //         <input  type="text"
-            //             required
-            //             className="form-control"
-            //             value={this.state.firstName}
-            //             onChange={this.onChangeCustomerfirstName}
-            //             />
-            //       </div>
-
-            //       <div className="form-group"> 
-            //         <label>Customer last Name: </label>
-            //         <input  type="text"
-            //             required
-            //             className="form-control"
-            //             value={this.state.lastName}
-            //             onChange={this.onChangeCustomerlastName}
-            //             />
-            //       </div>
-
-            //       <div className="form-group"> 
-            //         <label>Customer Email: </label>
-            //         <input  type="email"
-            //             required
-            //             className="form-control"
-            //             value={this.state.email}
-            //             onChange={this.onChangeCustomerEmail}
-            //             />
-            //       </div>
-
-            //       <div className="form-group"> 
-            //         <label>Password: </label>
-            //         <input  type="password"
-            //             required
-            //             className="form-control"
-            //             value={this.state.password}
-            //             onChange={this.onChangeCustomerPassword}
-            //             />
-            //       </div>
-
-            //       <div className="form-group">
-            //         <input type="submit" value="SignUP" className="btn btn-primary" />
-            //       </div> 
-
-            //       {/* <div className="form-group"> 
-            //         <label>Do you already have an account? </label>
-            //         <button className="btn btn-primary" onClick={this.onChangeToLogin}> SignIn </button>
-            //         </div> */}
-            //     </form>
-            //   </div>
-
-
-
-
-
             <div className={styles.signup_container}>
                 <div className={styles.signup_form_container}>
                     <div className={styles.left}>
@@ -152,7 +92,7 @@ export default class CustomerRegistration extends Component {
                         <h1>Welcome</h1>
 
                         <button type="button" className={styles.white_btn} onClick={this.onChangeToLogin}>
-                            Sing in
+                            Sign in
                         </button>
                     </div>
                     <div className={styles.right}>
@@ -202,7 +142,7 @@ export default class CustomerRegistration extends Component {
 
 
                             <button type="submit" className={styles.green_btn}>
-                                Sing Up
+                                Sign up
                             </button>
                         </form>
                     </div>

@@ -20,7 +20,7 @@ export default class successPage extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5050/cart/')
+    axios.get('http://localhost:8280/cart/')
       .then(response => {
         this.setState({ movies: response.data })
 
@@ -45,7 +45,7 @@ export default class successPage extends Component {
               userId: this.state.movies[i].userId,
             }
 
-            axios.post('http://localhost:5050/cart/update/' + this.state.movies[i]._id, movie)
+            axios.post('http://localhost:8280/cart/update/' + this.state.movies[i]._id, movie)
               .then(res => console.log(res.data));
 
           }
