@@ -58,12 +58,12 @@ export default class AdminLogin extends Component {
                         password: ''
                     })
                     this.props.history.push("/admin-retrieve");
-                  } else {
+                } else {
                     alert("Login Failed. Please re-check your credentials.");
-                  }
+                }
             });
 
-        
+
     }
 
 

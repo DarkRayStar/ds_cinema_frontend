@@ -34,28 +34,28 @@ function App() {
         backgroundSize: 'cover',
       }}>
 
-        <Navbar />
+        <Route path="/customer-signIn" component={CustomerLogin} />
+        <Route path="/admin-signIn" component={AdminLogin} />
+        <Route path="/" exact component={CustomerLogin} />
+        <Route path="/customer-signUp" component={CustomerRegistration} />
 
-        <div className="container" >
+        <div>
+          <Navbar />
+          <div className="container" >
 
-          <Route path="/" exact component={CustomerLogin} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/admin-retrieve" component={adminRetrieve} />
+            <Route path="/admin-insert" component={adminInsert} />
+            <Route path="/admin-update/:id" component={adminUpdate} />
+            <Route path="/qrgen" component={QrGencomponent} />
 
-          <Route path="/home" component={HomePage} />
-          <Route path="/admin-retrieve" component={adminRetrieve} />
-          <Route path="/admin-insert" component={adminInsert} />
-          <Route path="/admin-update/:id" component={adminUpdate} />
-          <Route path="/qrgen" component={QrGencomponent} />
+            <Route path="/one-movie/view/:id" component={ViewOneMovie} />
+            <Route path="/cart/view/" component={ViewCart} />
 
-          <Route path="/one-movie/view/:id" component={ViewOneMovie} />
-          <Route path="/cart/view/" component={ViewCart} />
+            <Route path="/payment-success" component={successPage} />
+            <Route path="/payment-paid" component={PaidPage} />
 
-          <Route path="/payment-success" component={successPage} />
-          <Route path="/payment-paid" component={PaidPage} />
-
-          {/* user management */}
-          <Route path="/customer-signIn" component={CustomerLogin} />
-          <Route path="/customer-signUp" component={CustomerRegistration} />
-          <Route path="/admin-signIn" component={AdminLogin} />
+          </div>
         </div>
       </div>
     </Router>
