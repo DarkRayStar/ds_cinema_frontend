@@ -36,7 +36,7 @@ const HomePage = () => {
             }).catch(err => {
                 console.log(err)
             })
-            // setLoggeduser(JSON.parse(sessionStorage.getItem("loggeduser")));
+        // setLoggeduser(JSON.parse(sessionStorage.getItem("loggeduser")));
     }, [])
 
     return (
@@ -44,7 +44,7 @@ const HomePage = () => {
 
             <div className="col-12 mb-5">
                 <div className="mb-3 col-4 mx-auto text-center">
-                    <label className="form-label h4 mt-3"> Search </label>
+                    <label className="form-label h4 mt-3" style={{ color: 'white' }}> Search </label>
                     <input className="form-control" type="text" value={filter} onChange={searchText.bind(this)} />
                 </div>
             </div>
@@ -53,7 +53,7 @@ const HomePage = () => {
                     {dataSearch.map((movie, index) => {
                         return (
                             <MDBCol>
-                                <MDBCard className='h-100' style={{ width: '300px' }}>
+                                <MDBCard className='h-100' style={{ width: '300px', color: '#B21B25', backgroundColor: '#1D1F20' }}>
                                     <MDBCardImage
                                         src={movie.imageurl}
                                         alt='...'
@@ -68,9 +68,9 @@ const HomePage = () => {
                                     </MDBCardBody>
                                     <MDBCardFooter>
 
-                                        <small className='text-muted'> {movie.genre}</small> |
-                                        <small className='text-muted'> {movie.imdb} imdb Rating</small>
-                                        <Link to={"/one-movie/view/" + movie._id}><MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float: "right" }}> More </MDBBtn></Link>
+                                        <small style={{ color: 'white' }}> {movie.genre}</small> |
+                                        <small style={{ color: 'white' }}> {movie.imdb} IMDB</small>
+                                        <Link to={"/one-movie/view/" + movie._id}><MDBBtn class="btn btn-outline-secondary btn-sm" href='#' style={{ float: "right", color: 'white', backgroundColor: '#B21B25' }}> More </MDBBtn></Link>
 
                                     </MDBCardFooter>
                                 </MDBCard>
@@ -79,6 +79,7 @@ const HomePage = () => {
                     })}
                 </MDBRow>
             </div>
+            <br /><br />
         </div>
         // <section className="py-4 container">
         //     <div className="row justify-content-center">

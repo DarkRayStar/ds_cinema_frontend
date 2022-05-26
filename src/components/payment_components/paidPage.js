@@ -70,7 +70,7 @@ export default class PaidPage extends Component {
   render() {
     return (
       <div style={{ paddingBottom: "350px" }}>
-        <div className="headingModsForViewVcl"> My Tickets  </div>
+        <div className="headingModsForViewVcl" style={{ color: 'white' }}> My Tickets  </div>
         <div className="btnCancel">
           <Link to={"/home"}> <button style={{ width: "110px" }} >Back</button></Link>
         </div>

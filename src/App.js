@@ -28,7 +28,12 @@ function App() {
   var bgColors = { Blue: "#00B1E1", Lgrey: "darkgray" };
   return (
     <Router>
-      <div style={{ backgroundColor: bgColors.Lgrey, height: "100%" }}>
+      <div style={{
+        backgroundImage: `url("https://img.freepik.com/free-photo/rows-red-seats-theater_53876-64710.jpg?t=st=1653584762~exp=1653585362~hmac=7d41cd4ebbbb62a68e83b36fec07daacff290ce05b89258592391b35c426e0dd&w=1060")`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}>
+
         <Navbar />
 
         <div className="container" >
