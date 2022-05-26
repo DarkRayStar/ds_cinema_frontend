@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './tableMod.css';
 
 export default class adminUpdate extends Component {
     constructor(props) {
@@ -136,11 +137,11 @@ export default class adminUpdate extends Component {
 
     render() {
         return (
-            <div>
-                <h3> Updaet the movie details</h3>
-                <form onSubmit={this.onSubmit}>
+            <div><br />
+                <center><h3 style={{ color: 'white' }}> Update The Movie Details</h3></center>
+                <form onSubmit={this.onSubmit} className='formInputs'>
                     <div className="form-group">
-                        <label>Movie Name: </label>
+                        <label>Movie Name </label>
                         <input type="text"
                             required
                             className="form-control"
@@ -222,8 +223,8 @@ export default class adminUpdate extends Component {
                     </div>
 
                     <div className="form-group">
-                        {/* <Link to="/admin-retrieve">  */}
-                        <input type="submit" value="Update Movie" className="btn btn-primary" />
+                        {/* <Link to="/admin-retrieve">  */}<br />
+                        <center><input type="submit" value="Update Movie" className="btn btn-primary" /></center><br />
                         {/* </Link> */}
                     </div>
                 </form>

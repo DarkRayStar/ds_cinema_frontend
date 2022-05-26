@@ -14,7 +14,7 @@ export default class Navbar extends Component {
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <div style={{ paddingLeft: "650px" }}>
-          <Link to="/" className="navbar-brand"> CINEPLEX CINEMA INC</Link>
+          <Link to="/home" className="navbar-brand"> CINEPLEX CINEMA INC</Link>
         </div>
         <div className='container' style={{ marginLeft: "350px" }} >
           <div>

@@ -35,17 +35,16 @@ export default class adminRetrieve extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h1> MOVIE DETAILS </h1>
-                <Link to="/admin-insert"><button type="button" class="btn btn-secondary">Add Movie</button></Link>
-                <table className="table table-bordered table-striped">
-                    <thead>
+            <div className="container"><br />
+                <center><h1 style={{ color: "white" }}> MOVIE DETAILS </h1></center><br />
+                <center><Link to="/admin-insert"><button style={{ width: "100%", backgroundColor: '#A1121D', color: 'white' }} type="button" class="btn ">Add Movie</button></Link></center>
+                <table className="table table-bordered table-striped table table-hover table-bordered table-light ">
+                    <thead className="table-dark">
                         <tr>
                             <td> Movie name </td>
                             <td> Producer </td>
                             <td> Year </td>
                             <td> Description </td>
-                            <td> ImageURL </td>
                             <td> Genre </td>
                             <td> IMDB </td>
                             <td> cast </td>
@@ -62,13 +61,12 @@ export default class adminRetrieve extends Component {
                                         <td> {movie.producer} </td>
                                         <td> {movie.year} </td>
                                         <td> {movie.Description} </td>
-                                        <td> {movie.imageurl} </td>
                                         <td> {movie.genre} </td>
                                         <td> {movie.imdb} </td>
                                         <td> {movie.cast} </td>
                                         <td> {movie.showtime} </td>
-                                        <td> <Link to={"/admin-update/" + movie._id} > <button type="button" class="btn btn-info btn-sm">Update</button></Link>
-                                            <button onClick={() => this.onSubmit(movie._id)} type="button" class="btn btn-danger btn-sm"> Delete</button>
+                                        <td> <Link to={"/admin-update/" + movie._id} > <button type="button" class="btn btn-info btn-sm" >Update</button></Link>
+                                            <button onClick={() => this.onSubmit(movie._id)} type="button" class="btn btn-danger btn-sm" > Delete</button>
                                         </td>
                                     </tr>
                             )
@@ -76,7 +74,7 @@ export default class adminRetrieve extends Component {
 
                     </tbody>
                 </table>
-
+                <br />
             </div>
         )
     }

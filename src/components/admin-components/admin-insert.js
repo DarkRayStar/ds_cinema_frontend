@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import './tableMod.css';
 
 export default class adminInsert extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export default class adminInsert extends Component {
         }
     }
 
-    onChangeMovieName(e){
+    onChangeMovieName(e) {
         this.setState({
             movieName: e.target.value
         })
@@ -66,13 +67,13 @@ export default class adminInsert extends Component {
         });
     }
 
-    onChangeCast(e){
+    onChangeCast(e) {
         this.setState({
             cast: e.target.value
         });
     }
 
-    onChangeShowtime(e){
+    onChangeShowtime(e) {
         this.setState({
             showtime: e.target.value
         });
@@ -96,7 +97,7 @@ export default class adminInsert extends Component {
         console.log(movie);
 
         axios.post('http://localhost:8280/movies/add', movie)
-            .then(res => console.log(res.data), alert("Successfully submitted the group"));
+            .then(res => console.log(res.data), alert("Successfully Added the Movie"));
 
         this.setState({
             movieName: '',
@@ -108,7 +109,7 @@ export default class adminInsert extends Component {
             imdb: '',
             showtime: '',
             cast: ''
-            
+
         })
 
         window.location = '/admin-retrieve';
@@ -116,97 +117,98 @@ export default class adminInsert extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Create New Group Log</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Movie Name: </label>
+            <div><br />
+                <center><h3 style={{ color: 'white' }}>Create New Group Log</h3> </center><br />
+                <center><form onSubmit={this.onSubmit} className='formInputs' style={{ color: 'white', backgroundColor: '#f9f9f927', width: '80%' }}>
+                    <div className="form-group"> <br /><br />
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.movieName}
                             onChange={this.onChangeMovieName}
-                        />
+                            placeholder='Movie Name'
+
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Producer </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.producer}
                             onChange={this.onChangeProducer}
-                        />
+                            placeholder='Producer'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Year </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.year}
                             onChange={this.onChangeYear}
-                        />
+                            placeholder='Year'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Description </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.Description}
                             onChange={this.onChangeDescription}
-                        />
+                            placeholder='Description'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Image URL </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.imageurl}
                             onChange={this.onChangeImageurl}
-                        />
+                            placeholder='Image URL'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Genre </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.genre}
                             onChange={this.onChangeGenre}
-                        />
+                            placeholder='Genre'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> IMDB </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.imdb}
                             onChange={this.onChangeImdb}
-                        />
+                            placeholder='IMDB'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Showtime </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.showtime}
                             onChange={this.onChangeShowtime}
-                        />
+                            placeholder='Show Time'
+                        /><br />
                     </div>
                     <div className="form-group">
-                        <label> Cast </label>
                         <input type="text"
                             required
                             className="form-control"
                             value={this.state.cast}
                             onChange={this.onChangeCast}
-                        />
+                            placeholder='Cast'
+                        /><br />
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Create Group" className="btn btn-primary" />
+                        <br /><center><input type="submit" value="Create Group" className="btn btn-primary" /></center> <br />
                     </div>
-                </form>
+                </form></center><br />
 
-            </div>
+            </div >
         )
     }
 }
