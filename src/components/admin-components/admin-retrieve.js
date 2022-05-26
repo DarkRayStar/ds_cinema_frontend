@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Button } from 'bootstrap';
 import { Link } from 'react-router-dom';
 
 export default class adminRetrieve extends Component {

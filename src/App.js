@@ -25,7 +25,6 @@ import successPage from "./components/payment_components/successPage";
 <link rel="stylesheet" href="./" />;
 
 function App() {
-  var bgColors = { Blue: "#00B1E1", Lgrey: "darkgray" };
   return (
     <Router>
       <div style={{
