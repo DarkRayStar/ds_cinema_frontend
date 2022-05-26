@@ -21,7 +21,7 @@ export default class Navbar extends Component {
             <Link to="/cart/view/" > <button style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
               Cart </button></Link>
 
-            <Link to="/payment-paid" > <button style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
+            <Link to="/payment-paid" style={{ textDecoration: "none" }}> <button style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
               My Tickets </button></Link>
 
             <button onClick={this.logout.bind(this)} style={{ marginLeft: "10px" }} className='btn btn-outline-light' >
