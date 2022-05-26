@@ -38,7 +38,7 @@ function QrGencomponent() {
       </div>
       {qrcode && <>
         <img src={qrcode} />
-        <a href={qrcode} class="fcc-btn" download="qrcode.png"> Download</a>
+        <a href={qrcode} className='btn btn-sm ' style={{ borderRadius: '10px', width: '125px' }} download="qrcode.png"> Download</a>
       </>}
     </div>
   )

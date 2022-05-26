@@ -146,7 +146,7 @@ export default class ViewOneMovie extends Component {
                 <header class="section ">
                     <section class="full-width ">
                         <div className="row">
-                            <div className="headingModsForViewVcl"> Book Your Movie </div>
+                            <div className="headingModsForViewVcl" style={{ color: 'white' }}> Book Your Movie </div>
 
                             <div class="containerView" >
 
