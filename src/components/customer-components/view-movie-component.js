@@ -175,7 +175,7 @@ export default class ViewOneMovie extends Component {
                                     <select name="state" id="state"
                                         onChange={this.onChangeTeaterOption}
                                         required >
-                                        <option value="" selected>Choose option</option>
+                                        <option value="4K CINEMA" selected>Choose option</option>
                                         <option value="4K CINEMA">4K CINEMA</option>
                                         <option value="DOLBY THEATER">DOLBY THEATER</option>
                                     </select>
